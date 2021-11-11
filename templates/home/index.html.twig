@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% if  app.user %}
+{% if app.user.username == 'admin' %}
+<h1> Maintenant ,vous etes connecte en tant que administrateur , vous pouvez modifier les produits et gerrer les utilisateurs  </h1>
+{% else %}
+<h1> bienvenue Mr/Mrs  {{app.user.username}} , vous pouvez allez voir nos produits et les commander  </h1>
+{% endif %}
+{% else %}
+<h1> salut , ce travail a realise par elyes keskes .
+Alors , avant de connecter , veuillez creer un compte (si vous voulez l acces en mode administrateur -> creer un compte en utilisant "admin" comme username , sinon si vous utilisez un autre username ,vous allez se connecter commettant un client ) </h1>
+{% endif %}
+{% endblock %}

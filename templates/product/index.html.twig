@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste produit{% endblock %}
+
+{% block body %}
+<h1>listes de produits:</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Libelle</th>
+      <th scope="col">Image</th>
+
+      <th scope="col">Prix unitaire</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for product in products %}
+    <tr>
+      <th>{{product.Lib}}</th>
+      <td>{{product.Image}}</td>
+
+      <td>{{product.PU}}</td>
+       {% if app.user %}
+      <td><a href="{{path('detail',{'id':product.id})}}" class="btn btn-primary" >detail</a></td>
+       {% endif %}
+    </tr>
+    
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

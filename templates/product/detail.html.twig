@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste produit{% endblock %}
+
+{% block body %}
+<h1>listes de produits:</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Libelle</th>
+      <th scope="col">Image</th>
+      <th scope="col">Decription</th>
+      <th scope="col">Prix unitaire</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>{{product.Lib}}</th>
+      <td>{{product.Image}}</td>
+      <td>{{product.Description}}</td>
+      <td>{{product.PU}}</td>
+      {% if app.user.username == 'admin'%}
+      <td><a href="{{path('delete',{'id':product.id()})}}" class="btn btn-danger">supprimer</button>
+
+    <a href="" class="btn btn-success">mettre a jour</button></td>
+
+  {% else %}
+      <td> <a href="" class="btn btn-secondary">ajouter au panier</button> </td>
+{% endif %}
+    </tr>
+    
+  </tbody>
+</table>
+
+{% endblock %}

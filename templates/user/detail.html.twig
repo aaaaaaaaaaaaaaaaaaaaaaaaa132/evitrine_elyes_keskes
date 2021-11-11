@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste produit{% endblock %}
+
+{% block body %}
+<h1>listes de produits:</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">username</th>
+      <th scope="col">role</th>
+      <th scope="col">Mdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <th>{{user.username}}</th>
+        <td>{{user.rolee}}</td>
+        <td>{{user.password}}</td>
+      <td><a href="{{path('deleteuser',{'id':user.id()})}}" class="btn btn-danger">supprimer</button>
+    <a href="{{path('updateuser',{'id':user.id()})}}"class="btn btn-success">mettre a jour</button></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+{% endblock %}

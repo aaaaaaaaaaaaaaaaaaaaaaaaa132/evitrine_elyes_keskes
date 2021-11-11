@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}user{% endblock %}
+
+
+
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">username</th>
+      <th scope="col">role</th>
+      <th scope="col">Mdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in User %}
+    <tr>
+        <th>{{user.username}}</th>
+        <td>{{user.rolee}}</td>
+        <td>{{user.password}}</td>
+        <td><a href="{{path('detailuser',{'id':user.id})}}" class="btn btn-primary" >detail</a></td>
+       </tr>
+       {% endfor %}
+  </tbody>
+
+</table>
+{% endblock %}
